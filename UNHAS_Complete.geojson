@@ -161,7 +161,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4867, -5.1345]
+        "coordinates": [119.490137, -5.131578]
       }
     },
     {
@@ -396,6 +396,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [119.5280, -5.2085]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus Fakultas Kedokteran Hewan",
+        "description": "Kampus yang khusus untuk Laboratorim Fakultas Kedokteran Hewan",
+        "campus": "Baraya",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.426423, -5.128965]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pusat Bahasa Mandarin",
+        "description": "Fasilitas untuk pembelajaran bahasa Mandarin Fakultas Ilmu Budaya",
+        "campus": "Sunu",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.429860, -5.121643]
       }
     }
   ]
