@@ -1,0 +1,402 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Tamalanrea",
+        "description": "Kampus utama yang menampung sebagian besar fakultas dan administrasi universitas",
+        "type": "Kampus Utama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4886, -5.1323]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Gowa (Fakultas Teknik)",
+        "description": "Kampus yang khusus untuk Fakultas Teknik",
+        "type": "Kampus Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.5270, -5.2083]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Barru",
+        "description": "Kampus vokasi UNHAS di Kabupaten Barru",
+        "type": "Kampus Vokasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.6182, -4.4059]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Selayar",
+        "description": "Kampus vokasi UNHAS di Kabupaten Kepulauan Selayar",
+        "type": "Kampus Vokasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4032, -6.1115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Soppeng",
+        "description": "Kampus vokasi UNHAS di Kabupaten Soppeng",
+        "type": "Kampus Vokasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.8880, -4.3526]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Sidrap",
+        "description": "Kampus vokasi UNHAS di Kabupaten Sidenreng Rappang",
+        "type": "Kampus Vokasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.8213, -3.9442]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gedung Rektorat",
+        "description": "Gedung administrasi pusat dan kantor rektor Universitas Hasanuddin",
+        "campus": "Tamalanrea",
+        "type": "Administrasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4886, -5.1323]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gedung Perpustakaan Pusat",
+        "description": "Perpustakaan pusat yang terdiri dari 4 lantai, berdampingan dengan gedung Rektorat",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4878, -5.1325]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Ekonomi dan Bisnis",
+        "description": "Fakultas tertua di Universitas Hasanuddin, cikal bakal berdirinya UNHAS",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4892, -5.1330]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Hukum",
+        "description": "Salah satu fakultas tertua di Universitas Hasanuddin",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4898, -5.1335]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Kedokteran",
+        "description": "Salah satu dari tiga fakultas awal Universitas Hasanuddin",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4905, -5.1328]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Teknik (Tamalanrea)",
+        "description": "Gedung lama Fakultas Teknik yang sebagian besar aktivitasnya telah pindah ke Gowa",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4870, -5.1340]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Ilmu Sosial dan Politik",
+        "description": "Fakultas yang menyelenggarakan pendidikan di bidang ilmu sosial dan politik",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4867, -5.1345]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Ilmu Budaya",
+        "description": "Fakultas yang sebelumnya bernama Fakultas Sastra",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4863, -5.1350]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas MIPA",
+        "description": "Fakultas Matematika dan Ilmu Pengetahuan Alam",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.485921, -5.131880]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Ilmu Kelautan dan Perikanan",
+        "description": "Fakultas yang terdiri dari Departemen Ilmu Kelautan dan Departemen Perikanan",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4855, -5.1360]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Pertanian",
+        "description": "Fakultas yang menyelenggarakan pendidikan di bidang pertanian",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4850, -5.1365]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Peternakan",
+        "description": "Fakultas yang berfokus pada ilmu peternakan dan pengembangan hewan ternak",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4845, -5.1370]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Kehutanan",
+        "description": "Fakultas yang berfokus pada ilmu kehutanan dan pengelolaan hutan",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4840, -5.1375]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Kedokteran Gigi",
+        "description": "Fakultas yang sebelumnya merupakan Institut Kedokteran Gigi Yos Sudarso",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4910, -5.1333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Kesehatan Masyarakat",
+        "description": "Fakultas yang berfokus pada ilmu kesehatan masyarakat",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4915, -5.1338]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Farmasi",
+        "description": "Fakultas yang berfokus pada ilmu farmasi dan pengembangan obat-obatan",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4920, -5.1343]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gedung Mata Kuliah Umum (MKU)",
+        "description": "Gedung yang digunakan untuk perkuliahan mata kuliah umum",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4880, -5.1335]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gedung Pusat Kegiatan Mahasiswa (PKM)",
+        "description": "Gedung yang mewadahi berbagai Unit Kegiatan Mahasiswa (UKM)",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4890, -5.1340]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gedung Ipteks",
+        "description": "Gedung untuk kegiatan ilmu pengetahuan dan teknologi dengan pelataran terbuka",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4900, -5.1345]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pusat Bimbingan Konseling (PBK)",
+        "description": "Pusat konseling untuk sivitas akademika Universitas Hasanuddin",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4885, -5.1350]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rumah Sakit Universitas Hasanuddin",
+        "description": "Rumah sakit universitas yang memberikan berbagai pelayanan kesehatan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4925, -5.1330]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Asrama Mahasiswa",
+        "description": "Asrama untuk tempat tinggal mahasiswa selama masa perkuliahan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4865, -5.1380]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Danau UNHAS",
+        "description": "Danau yang berada di area kampus sebagai tempat rekreasi",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.4840, -5.1350]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Center of Scientific Activities (CSA)",
+        "description": "Gedung untuk kegiatan ilmiah di Fakultas Teknik Gowa",
+        "campus": "Gowa",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.5275, -5.2080]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Center of Technology (CoT)",
+        "description": "Pusat administrasi dan manajemen Fakultas Teknik Gowa",
+        "campus": "Gowa",
+        "type": "Administrasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.5280, -5.2085]
+      }
+    }
+  ]
+}

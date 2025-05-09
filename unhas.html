@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Kampus Universitas Hasanuddin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background-color: #D62828; /* Warna merah khas UNHAS */
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #control-panel {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #map {
+            flex: 1;
+            width: 100%;
+        }
+        .map-button {
+            padding: 8px 15px;
+            background-color: #D62828;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .map-button:hover {
+            background-color: #B51D1D;
+        }
+        .info {
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .legend {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            line-height: 18px;
+            color: #555;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        .coordinate-display {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        #editor-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: white;
+            overflow-y: auto;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 1000;
+            transition: right 0.3s ease;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .tab.active {
+            background-color: #D62828;
+            color: white;
+            border-color: #D62828;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #loading-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        #error-message {
+            display: none;
+            background-color: #ffdddd;
+            border-left: 6px solid #f44336;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        #file-input-container {
+            display: none;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div id="loading-content">
+            <h2>Memuat Data...</h2>
+            <p>Sedang memuat data GeoJSON kampus UNHAS</p>
+            <div id="error-message">
+                <p><strong>Tidak dapat memuat file GeoJSON eksternal.</strong></p>
+                <p>Pastikan file <code>UNHAS_Complete.geojson</code> berada di folder yang sama dengan file HTML ini.</p>
+                <div id="file-input-container">
+                    <p>Anda dapat memilih file GeoJSON secara manual:</p>
+                    <input type="file" id="geojson-file-input" accept=".geojson,.json">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <div id="header">
+            <h1>Peta Kampus Universitas Hasanuddin</h1>
+        </div>
+        <div id="control-panel">
+            <button id="view-all-btn" class="map-button">Lihat Semua Kampus</button>
+            <button id="view-tamalanrea-btn" class="map-button">Kampus Tamalanrea</button>
+            <button id="view-gowa-btn" class="map-button">Kampus Gowa</button>
+            <button id="edit-mode-btn" class="map-button">Edit Koordinat</button>
+            <button id="export-json-btn" class="map-button">Export GeoJSON</button>
+        </div>
+        <div id="map"></div>
+        <div id="coordinate-display" class="coordinate-display">Koordinat: [klik kanan pada peta]</div>
+    </div>
+
+    <div id="editor-panel">
+        <span class="close-btn" onclick="closeEditor()">&times;</span>
+        <h2>Editor Kampus UNHAS</h2>
+        
+        <div class="tab-container">
+            <div class="tab active" onclick="switchTab('edit-tab')">Edit Lokasi</div>
+            <div class="tab" onclick="switchTab('json-tab')">GeoJSON</div>
+        </div>
+        
+        <div id="edit-tab" class="tab-content active">
+            <div class="form-group">
+                <label for="building-select">Pilih Lokasi:</label>
+                <select id="building-select" onchange="selectFeature()"></select>
+            </div>
+            
+            <div id="edit-form">
+                <div class="form-group">
+                    <label for="building-name">Nama:</label>
+                    <input type="text" id="building-name">
+                </div>
+                <div class="form-group">
+                    <label for="building-desc">Deskripsi:</label>
+                    <textarea id="building-desc" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="building-type">Tipe:</label>
+                    <select id="building-type">
+                        <option value="Kampus Utama">Kampus Utama</option>
+                        <option value="Kampus Fakultas">Kampus Fakultas</option>
+                        <option value="Kampus Vokasi">Kampus Vokasi</option>
+                        <option value="Fakultas">Fakultas</option>
+                        <option value="Administrasi">Administrasi</option>
+                        <option value="Fasilitas">Fasilitas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="building-campus">Kampus:</label>
+                    <select id="building-campus">
+                        <option value="Tamalanrea">Tamalanrea</option>
+                        <option value="Gowa">Gowa</option>
+                        <option value="Barru">Barru</option>
+                        <option value="Selayar">Selayar</option>
+                        <option value="Soppeng">Soppeng</option>
+                        <option value="Sidrap">Sidrap</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="building-lng">Longitude:</label>
+                    <input type="text" id="building-lng">
+                </div>
+                <div class="form-group">
+                    <label for="building-lat">Latitude:</label>
+                    <input type="text" id="building-lat">
+                </div>
+                <button onclick="updateFeature()" class="map-button">Simpan Perubahan</button>
+            </div>
+        </div>
+        
+        <div id="json-tab" class="tab-content">
+            <h3>GeoJSON</h3>
+            <p>Salin kode ini untuk menyimpan perubahan Anda:</p>
+            <textarea id="geojson-output" style="width:100%;height:400px;"></textarea>
+            <button onclick="copyJsonToClipboard()" class="map-button" style="margin-top:10px;">Salin ke Clipboard</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        // Variable untuk menyimpan data GeoJSON
+        let geojsonData = null;
+        
+        // Variable untuk layer GeoJSON
+        let geoJSONLayer;
+        
+        // Inisialisasi peta
+        const map = L.map('map');
+        
+        // Tambahkan layer peta dasar
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Fungsi untuk mendapatkan warna marker berdasarkan tipe
+        function getMarkerColor(type) {
+            switch(type) {
+                case 'Kampus Utama': return '#D62828'; // Merah
+                case 'Kampus Fakultas': return '#F77F00'; // Oranye
+                case 'Kampus Vokasi': return '#FCBF49'; // Kuning
+                case 'Fakultas': return '#003049'; // Biru tua
+                case 'Administrasi': return '#2A9D8F'; // Teal
+                case 'Fasilitas': return '#457B9D'; // Biru muda
+                default: return '#D62828'; // Default merah
+            }
+        }
+        
+        // Fungsi untuk mendapatkan ukuran marker berdasarkan tipe
+        function getMarkerRadius(type) {
+            switch(type) {
+                case 'Kampus Utama': return 10;
+                case 'Kampus Fakultas': return 9;
+                case 'Kampus Vokasi': return 8;
+                case 'Fakultas': return 7;
+                case 'Administrasi': return 7;
+                case 'Fasilitas': return 6;
+                default: return 8;
+            }
+        }
+
+        // Fungsi untuk styling marker
+        function stylePoint(feature, latlng) {
+            const type = feature.properties.type;
+            return L.circleMarker(latlng, {
+                radius: getMarkerRadius(type),
+                fillColor: getMarkerColor(type),
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            });
+        }
+
+        // Fungsi untuk membuat popup
+        function onEachFeature(feature, layer) {
+            if (feature.properties) {
+                let popupContent = `<strong>${feature.properties.name}</strong><br>${feature.properties.description}<br>`;
+                
+                if (feature.properties.campus) {
+                    popupContent += `<strong>Kampus:</strong> ${feature.properties.campus}<br>`;
+                }
+                
+                popupContent += `<strong>Tipe:</strong> ${feature.properties.type}<br>`;
+                popupContent += `<strong>Koordinat:</strong> [${feature.geometry.coordinates[0]}, ${feature.geometry.coordinates[1]}]`;
+                
+                layer.bindPopup(popupContent);
+            }
+        }
+
+        // Fungsi untuk menambahkan data GeoJSON ke peta
+        function addGeoJSONToMap(filter = null) {
+            // Remove existing layer if it exists
+            if (geoJSONLayer) {
+                map.removeLayer(geoJSONLayer);
+            }
+            
+            // Filter data jika diperlukan
+            let filteredData = {
+                type: "FeatureCollection",
+                features: geojsonData.features
+            };
+            
+            if (filter) {
+                filteredData.features = geojsonData.features.filter(filter);
+            }
+            
+            // Add new layer
+            geoJSONLayer = L.geoJSON(filteredData, {
+                pointToLayer: stylePoint,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+            
+            // Update GeoJSON output
+            document.getElementById('geojson-output').value = JSON.stringify(geojsonData, null, 2);
+            
+            // Update building select
+            updateBuildingSelect();
+        }
+        
+        // Fungsi untuk memuat data GeoJSON dari file
+        function loadGeoJSONData() {
+            // Coba memuat file GeoJSON menggunakan fetch
+            fetch('UNHAS_Complete.geojson')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Tidak dapat memuat file GeoJSON');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Simpan data
+                    geojsonData = data;
+                    
+                    // Tambahkan ke peta
+                    addGeoJSONToMap();
+                    
+                    // Set view ke lokasi awal
+                    map.setView([-5.1323, 119.4886], 7);
+                    
+                    // Tambahkan skala peta
+                    L.control.scale().addTo(map);
+                    
+                    // Tambahkan legenda
+                    addLegend();
+                    
+                    // Tambahkan info panel
+                    addInfoPanel();
+                    
+                    // Hilangkan loading screen
+                    document.getElementById('loading').style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('file-input-container').style.display = 'block';
+                });
+        }
+        
+        // Tambahkan event listener untuk file input
+        document.getElementById('geojson-file-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        geojsonData = JSON.parse(e.target.result);
+                        // Tambahkan ke peta
+                        addGeoJSONToMap();
+                        
+                        // Set view ke lokasi awal
+                        map.setView([-5.1323, 119.4886], 7);
+                        
+                        // Tambahkan skala peta
+                        L.control.scale().addTo(map);
+                        
+                        // Tambahkan legenda
+                        addLegend();
+                        
+                        // Tambahkan info panel
+                        addInfoPanel();
+                        
+                        // Hilangkan loading screen
+                        document.getElementById('loading').style.display = 'none';
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                        alert('File yang dipilih bukan file JSON/GeoJSON yang valid');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+        
+        // Tambahkan legenda
+        function addLegend() {
+            const legend = L.control({position: 'bottomright'});
+            legend.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'legend');
+                div.innerHTML = '<h4>Legenda</h4>';
+                div.innerHTML += '<i style="background: #D62828"></i> Kampus Utama<br>';
+                div.innerHTML += '<i style="background: #F77F00"></i> Kampus Fakultas<br>';
+                div.innerHTML += '<i style="background: #FCBF49"></i> Kampus Vokasi<br>';
+                div.innerHTML += '<i style="background: #003049"></i> Fakultas<br>';
+                div.innerHTML += '<i style="background: #2A9D8F"></i> Administrasi<br>';
+                div.innerHTML += '<i style="background: #457B9D"></i> Fasilitas<br>';
+                return div;
+            };
+            legend.addTo(map);
+        }
+        
+        // Tambahkan info panel
+        function addInfoPanel() {
+            const info = L.control({position: 'topright'});
+            info.onAdd = function(map) {
+                const div = L.DomUtil.create('div', 'info');
+                div.innerHTML = '<h4>Informasi</h4>Klik pada titik untuk melihat detail. Klik kanan untuk melihat koordinat.';
+                return div;
+            };
+            info.addTo(map);
+        }
+
+        // Tampilkan koordinat saat klik kanan
+        const coordDisplay = document.getElementById('coordinate-display');
+        map.on('contextmenu', function(e) {
+            const lat = e.latlng.lat.toFixed(6);
+            const lng = e.latlng.lng.toFixed(6);
+            coordDisplay.innerHTML = `Koordinat: [${lng}, ${lat}]`;
+            // Copy to clipboard
+            navigator.clipboard.writeText(`[${lng}, ${lat}]`).then(function() {
+                alert(`Koordinat [${lng}, ${lat}] telah disalin ke clipboard!`);
+            }).catch(function() {
+                // Silent fail
+            });
+        });
+        
+        // Button event listeners
+        document.getElementById('view-all-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap();
+            map.setView([-5.1323, 119.4886], 7);
+        });
+        
+        document.getElementById('view-tamalanrea-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Tamalanrea' || feature.properties.type === 'Kampus Utama');
+            map.setView([-5.1323, 119.4886], 16);
+        });
+        
+        document.getElementById('view-gowa-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Gowa' || feature.properties.type === 'Kampus Fakultas');
+            map.setView([-5.2083, 119.5270], 16);
+        });
+        
+        document.getElementById('edit-mode-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            toggleEditor();
+        });
+        
+        document.getElementById('export-json-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            exportJson();
+        });
+        
+        // Editor panel functions
+        function toggleEditor() {
+            const editorPanel = document.getElementById('editor-panel');
+            if (editorPanel.style.right === '0px') {
+                editorPanel.style.right = '-400px';
+            } else {
+                editorPanel.style.right = '0px';
+            }
+        }
+        
+        function closeEditor() {
+            document.getElementById('editor-panel').style.right = '-400px';
+        }
+        
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Activate tab button
+            const tabIndex = tabId === 'edit-tab' ? 0 : 1;
+            document.querySelectorAll('.tab')[tabIndex].classList.add('active');
+        }
+        
+        function updateBuildingSelect() {
+            if (!geojsonData) return;
+            
+            const select = document.getElementById('building-select');
+            // Clear current options
+            select.innerHTML = '<option value="" selected disabled>-- Pilih Lokasi --</option>';
+            
+            // Group by campus
+            const campuses = {};
+            
+            geojsonData.features.forEach((feature, index) => {
+                const campus = feature.properties.campus || feature.properties.type;
+                
+                if (!campuses[campus]) {
+                    campuses[campus] = [];
+                }
+                
+                campuses[campus].push({
+                    index: index,
+                    name: feature.properties.name
+                });
+            });
+            
+            // Add options grouped by campus
+            for (const campus in campuses) {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = campus;
+                
+                campuses[campus].forEach(building => {
+                    const option = document.createElement('option');
+                    option.value = building.index;
+                    option.textContent = building.name;
+                    optgroup.appendChild(option);
+                });
+                
+                select.appendChild(optgroup);
+            }
+        }
+        
+        function selectFeature() {
+            if (!geojsonData) return;
+            
+            const select = document.getElementById('building-select');
+            const index = parseInt(select.value);
+            
+            if (isNaN(index)) return;
+            
+            const feature = geojsonData.features[index];
+            
+            // Fill form fields
+            document.getElementById('building-name').value = feature.properties.name || '';
+            document.getElementById('building-desc').value = feature.properties.description || '';
+            document.getElementById('building-lng').value = feature.geometry.coordinates[0] || '';
+            document.getElementById('building-lat').value = feature.geometry.coordinates[1] || '';
+            
+            // Set type and campus if available
+            const typeSelect = document.getElementById('building-type');
+            if (feature.properties.type) {
+                for (let i = 0; i < typeSelect.options.length; i++) {
+                    if (typeSelect.options[i].value === feature.properties.type) {
+                        typeSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            
+            const campusSelect = document.getElementById('building-campus');
+            if (feature.properties.campus) {
+                for (let i = 0; i < campusSelect.options.length; i++) {
+                    if (campusSelect.options[i].value === feature.properties.campus) {
+                        campusSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            
+            // Pan to feature
+            map.setView([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], 17);
+        }
+        
+        function updateFeature() {
+            if (!geojsonData) return;
+            
+            const select = document.getElementById('building-select');
+            const index = parseInt(select.value);
+            
+            if (isNaN(index)) return;
+            
+            // Update feature with form values
+            geojsonData.features[index].properties.name = document.getElementById('building-name').value;
+            geojsonData.features[index].properties.description = document.getElementById('building-desc').value;
+            geojsonData.features[index].properties.type = document.getElementById('building-type').value;
+            geojsonData.features[index].properties.campus = document.getElementById('building-campus').value;
+            geojsonData.features[index].geometry.coordinates[0] = parseFloat(document.getElementById('building-lng').value);
+            geojsonData.features[index].geometry.coordinates[1] = parseFloat(document.getElementById('building-lat').value);
+            
+            // Refresh map
+            addGeoJSONToMap();
+            
+            // Show success message
+            alert('Lokasi berhasil diperbarui!');
+        }
+        
+        function exportJson() {
+            if (!geojsonData) return;
+            
+            document.getElementById('editor-panel').style.right = '0px';
+            switchTab('json-tab');
+        }
+        
+        function copyJsonToClipboard() {
+            const jsonText = document.getElementById('geojson-output');
+            jsonText.select();
+            document.execCommand('copy');
+            alert('GeoJSON telah disalin ke clipboard!');
+        }
+        
+        // Load GeoJSON data
+        loadGeoJSONData();
+    </script>
+</body>
+</html>
