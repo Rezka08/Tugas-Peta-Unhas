@@ -10,7 +10,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4886, -5.1323]
+        "coordinates": [119.487836, -5.134870]
       }
     },
     {
@@ -22,7 +22,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.5270, -5.2083]
+        "coordinates": [119.502046, -5.231269]
       }
     },
     {
@@ -34,19 +34,31 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.6182, -4.4059]
+        "coordinates": [119.619462, -4.409294]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Kampus UNHAS Selayar",
+        "name": "Kampus UNHAS Selayar 1",
         "description": "Kampus vokasi UNHAS di Kabupaten Kepulauan Selayar",
         "type": "Kampus Vokasi"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [120.4032, -6.1115]
+        "coordinates": [120.459230, -6.118529]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Selayar 2",
+        "description": "Kampus vokasi UNHAS di Kabupaten Kepulauan Selayar",
+        "type": "Kampus Vokasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.453863, -6.149878]
       }
     },
     {
@@ -58,7 +70,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.8880, -4.3526]
+        "coordinates": [119.885868, -4.333686]
       }
     },
     {
@@ -70,7 +82,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.8213, -3.9442]
+        "coordinates": [119.795716, -3.923890]
       }
     },
     {
@@ -83,7 +95,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4886, -5.1323]
+        "coordinates": [119.488512, -5.133048]
       }
     },
     {
@@ -96,7 +108,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4878, -5.1325]
+        "coordinates": [119.488356, -5.132145]
       }
     },
     {
@@ -109,7 +121,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4892, -5.1330]
+        "coordinates": [119.490478, -5.131343]
       }
     },
     {
@@ -122,7 +134,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4898, -5.1335]
+        "coordinates": [119.491274, -5.131680]
       }
     },
     {
@@ -135,20 +147,20 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4905, -5.1328]
+        "coordinates": [119.487109, -5.129965]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Fakultas Teknik (Tamalanrea)",
+        "name": "Fakultas Teknik Lama (Tamalanrea)",
         "description": "Gedung lama Fakultas Teknik yang sebagian besar aktivitasnya telah pindah ke Gowa",
         "campus": "Tamalanrea",
         "type": "Fakultas"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4870, -5.1340]
+        "coordinates": [119.486487, -5.132962]
       }
     },
     {
@@ -174,7 +186,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4863, -5.1350]
+        "coordinates": [119.490810, -5.132553]
       }
     },
     {
@@ -200,7 +212,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4855, -5.1360]
+        "coordinates": [119.483866, -5.129783]
       }
     },
     {
@@ -382,7 +394,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.5275, -5.2080]
+        "coordinates": [119.502084, -5.230869]
       }
     },
     {
@@ -395,7 +407,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.5280, -5.2085]
+        "coordinates": [119.501595, -5.230334]
       }
     },
     {
