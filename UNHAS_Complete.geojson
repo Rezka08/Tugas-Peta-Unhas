@@ -401,10 +401,10 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Kampus   Fakultas Kedokteran Hewan",
+        "name": "Kampus Fakultas Kedokteran Hewan",
         "description": "Kampus yang khusus untuk Laboratorim Fakultas Kedokteran Hewan",
         "campus": "Baraya",
-        "type": "Fakultas"
+        "type": "Kampus Fakultas"
       },
       "geometry": {
         "type": "Point",
@@ -577,6 +577,44 @@
       "geometry": {
         "type": "Point",
         "coordinates": [119.487836, -5.134870]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Keperawatan",
+        "description": "Fakultas yang berfokus pada pendidikan keperawatan dan kesehatan",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.485878, -5.133106]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rumah Sakit Gigi dan Mulut UNHAS",
+        "description": "Rumah sakit yang menyediakan layanan kesehatan gigi dan mulut",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.424267, -5.129935]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fakultas Ekonomi dan Bisnis kedua",
+        "description": "Fakultas Ekonomi dan Bisnis yang terletak di jalan Kandea",
+        "campus": "Baraya",
+        "type": "Kampus Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.424520, -5.129105]
       }
     }
   ]
