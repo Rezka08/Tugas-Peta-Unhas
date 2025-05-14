@@ -4,18 +4,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Kampus UNHAS Tamalanrea",
-        "description": "Kampus utama yang menampung sebagian besar fakultas dan administrasi universitas",
-        "type": "Kampus Utama"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [119.487836, -5.134870]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Kampus UNHAS Gowa (Fakultas Teknik)",
         "description": "Kampus yang khusus untuk Fakultas Teknik",
         "type": "Kampus Fakultas"
@@ -251,7 +239,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4840, -5.1375]
+        "coordinates": [119.483963, -5.130650]
       }
     },
     {
@@ -264,7 +252,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4910, -5.1333]
+        "coordinates": [119.486795, -5.129169]
       }
     },
     {
@@ -277,7 +265,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4915, -5.1338]
+        "coordinates": [119.486184, -5.128453]
       }
     },
     {
@@ -290,7 +278,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4920, -5.1343]
+        "coordinates": [119.485459, -5.131778]
       }
     },
     {
@@ -303,7 +291,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4880, -5.1335]
+        "coordinates": [119.490979, -5.132456]
       }
     },
     {
@@ -316,7 +304,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4890, -5.1340]
+        "coordinates": [119.486819, -5.135079]
       }
     },
     {
@@ -329,7 +317,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4900, -5.1345]
+        "coordinates": [119.488962, -5.136190]
       }
     },
     {
@@ -355,7 +343,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4925, -5.1330]
+        "coordinates": [119.493817, -5.132691]
       }
     },
     {
@@ -368,7 +356,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4865, -5.1380]
+        "coordinates": [119.491172, -5.130083]
       }
     },
     {
@@ -381,7 +369,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.4840, -5.1350]
+        "coordinates": [119.490566, -5.136599]
       }
     },
     {
@@ -394,7 +382,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [119.502084, -5.230869]
+        "coordinates": [119.502086, -5.230867]
       }
     },
     {
@@ -413,7 +401,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Kampus Fakultas Kedokteran Hewan",
+        "name": "Kampus   Fakultas Kedokteran Hewan",
         "description": "Kampus yang khusus untuk Laboratorim Fakultas Kedokteran Hewan",
         "campus": "Baraya",
         "type": "Fakultas"
@@ -434,6 +422,161 @@
       "geometry": {
         "type": "Point",
         "coordinates": [119.429860, -5.121643]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Masjid Kampus Universitas Hasanuddin",
+        "description": "Masjid yang terletak di area kampus Universitas Hasanuddin",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.489719, -5.138468]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gor JK Arenatorium Universitas Hasanuddin",
+        "description": "Gelanggang olahraga yang digunakan untuk berbagai kegiatan olahraga dan acara",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.485953, -5.135508]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lapangan Sepak Bola Universitas Hasanuddin",
+        "description": "Lapangan sepak bola yang digunakan untuk kegiatan olahraga dan latihan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.487187, -5.136874]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lapangan Basket Universitas Hasanuddin",
+        "description": "Lapangan basket yang digunakan untuk kegiatan olahraga dan latihan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.487412, -5.135105]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lapangan Tenis Universitas Hasanuddin",
+        "description": "Lapangan tenis yang digunakan untuk kegiatan olahraga dan latihan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.485245, -5.135432]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lapangan Voli Universitas Hasanuddin",
+        "description": "Lapangan voli yang digunakan untuk kegiatan olahraga dan latihan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.486564, -5.135592]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kolam Renang Universitas Hasanuddin",
+        "description": "Kolam renang yang digunakan untuk kegiatan olahraga dan latihan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.486194, -5.137025]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Taman Universitas Hasanuddin",
+        "description": "Taman yang terletak di area kampus untuk rekreasi dan bersantai",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.488437, -5.139168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baruga AP Pettarani Universitas Hasanuddin",
+        "description": "Gedung serbaguna yang digunakan untuk berbagai acara dan kegiatan",
+        "campus": "Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.489461, -5.131312]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pusat Belajar (PB) Mata Kuliah Umum Universitas Hasanuddin",
+        "description": "Pusat Belajar untuk mata kuliah umum yang terletak di area kampus",
+        "campus":"Tamalanrea",
+        "type": "Fasilitas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.487948, -5.131580]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pascasarjana Universitas Hasanuddin",
+        "description": "Program pascasarjana yang menawarkan berbagai program studi",
+        "campus": "Tamalanrea",
+        "type": "Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.485502, -5.128564]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus UNHAS Tamalanrea",
+        "description": "Kampus utama yang menampung sebagian besar fakultas dan administrasi universitas",
+        "type": "Kampus Utama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.487836, -5.134870]
       }
     }
   ]
