@@ -417,7 +417,7 @@
         "name": "Pusat Bahasa Mandarin",
         "description": "Fasilitas untuk pembelajaran bahasa Mandarin Fakultas Ilmu Budaya",
         "campus": "Sunu",
-        "type": "Fakultas"
+        "type": "Kampus Fakultas"
       },
       "geometry": {
         "type": "Point",
@@ -615,6 +615,84 @@
       "geometry": {
         "type": "Point",
         "coordinates": [119.424520, -5.129105]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Arsitektur",
+        "description": "Departemen yang berfokus pada pendidikan teknik arsitektur",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.502717, -5.231403]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Sipil",
+        "description": "Departemen yang berfokus pada pendidikan teknik sipil",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.502491, -5.232129]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Mesin",
+        "description": "Departemen yang berfokus pada pendidikan teknik mesin",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.503355, -5.232028]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Elektro",
+        "description": "Departemen yang berfokus pada pendidikan teknik elektro",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.503108, -5.232717]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Geologi",
+        "description": "Departemen yang berfokus pada pendidikan teknik geologi",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.504058, -5.232786]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Departemen Teknik Perkapalan",
+        "description": "Departemen yang berfokus pada pendidikan teknik perkapalan",
+        "campus": "Gowa",
+        "type": "Departemen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [119.504696, -5.233401]
       }
     }
   ]

@@ -190,6 +190,11 @@
             <button id="view-all-btn" class="map-button">Lihat Semua Kampus</button>
             <button id="view-tamalanrea-btn" class="map-button">Kampus Tamalanrea</button>
             <button id="view-gowa-btn" class="map-button">Kampus Gowa</button>
+            <button id="view-barru-btn" class="map-button">Kampus Barru</button>
+            <button id="view-soppeng-btn" class="map-button">Kampus Soppeng</button>
+            <button id="view-selayar-btn" class="map-button">Kampus Selayar</button>
+            <button id="view-sidrap-btn" class="map-button">Kampus Sidrap</button>
+            <button id="view-baraya-btn" class="map-button">Kampus Baraya</button>
             <button id="edit-mode-btn" class="map-button">Edit Koordinat</button>
             <button id="export-json-btn" class="map-button">Export GeoJSON</button>
         </div>
@@ -287,8 +292,9 @@
                 case 'Kampus Vokasi': return '#FCBF49'; // Kuning
                 case 'Fakultas': return '#003049'; // Biru tua
                 case 'Administrasi': return '#2A9D8F'; // Teal
-                case 'Fasilitas': return '#457B9D'; // Biru muda
-                default: return '#D62828'; // Default merah
+                case 'Fasilitas': return '#457B9D';
+                case 'Departemen': return '#F1FAEE';
+                default: return '#D62828';
             }
         }
         
@@ -300,6 +306,7 @@
                 case 'Kampus Vokasi': return 8;
                 case 'Fakultas': return 7;
                 case 'Administrasi': return 7;
+                case 'Departemen': return 7;
                 case 'Fasilitas': return 6;
                 default: return 8;
             }
@@ -449,6 +456,7 @@
                 div.innerHTML += '<i style="background: #003049"></i> Fakultas<br>';
                 div.innerHTML += '<i style="background: #2A9D8F"></i> Administrasi<br>';
                 div.innerHTML += '<i style="background: #457B9D"></i> Fasilitas<br>';
+                div.innerHTML += '<i style="background: #F1FAEE"></i> Departemen<br>';
                 return div;
             };
             legend.addTo(map);
@@ -495,7 +503,37 @@
         document.getElementById('view-gowa-btn').addEventListener('click', function() {
             if (!geojsonData) return;
             addGeoJSONToMap(feature => feature.properties.campus === 'Gowa' || feature.properties.type === 'Kampus Fakultas');
-            map.setView([-5.2083, 119.5270], 16);
+            map.setView([-5.231264, 119.502057], 16);
+        });
+
+        document.getElementById('view-barru-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Barru' || feature.properties.type === 'Kampus Vokasi');
+            map.setView([-4.40861, 119.61972], 16);
+        });
+
+        document.getElementById('view-soppeng-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Soppeng' || feature.properties.type === 'Kampus Vokasi');
+            map.setView([-4.333686, 119.885868], 16);
+        });
+
+        document.getElementById('view-selayar-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Selayar' || feature.properties.type === 'Kampus Vokasi');
+            map.setView([-6.12852, 120.45650], 13);
+        });
+
+        document.getElementById('view-sidrap-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Sidrap' || feature.properties.type === 'Kampus Vokasi');
+            map.setView([-3.923890, 119.795716], 16);
+        });
+
+        document.getElementById('view-baraya-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Baraya' || feature.properties.type === 'Kampus Fakultas');
+            map.setView([-5.12728, 119.42744], 15);
         });
         
         document.getElementById('edit-mode-btn').addEventListener('click', function() {
