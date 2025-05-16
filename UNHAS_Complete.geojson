@@ -694,6 +694,19 @@
         "type": "Point",
         "coordinates": [119.504696, -5.233401]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kampus PSDKU UNHAS Jakarta",
+        "description": "Kampus PSDKU UNHAS yang terletak di Jakarta",
+        "campus": "Jakarta",
+        "type": "Kampus Fakultas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.8137254455195, -6.163907091317874]
+      }
     }
   ]
 }

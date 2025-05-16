@@ -1,3 +1,11 @@
+<!-- 
+ Kelompok 1
+Nama Anggota: 
+1. Rezka Wildan Nurhadi Bakri (H071231030)
+2. Syaebatul Hamdi (H071231049)
+3. Musliati (H071231014)
+-->
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -111,6 +119,10 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .group-members {
+            font-size: 14px;
+            margin-top: 5px;
+        }
         .tab-container {
             display: flex;
             margin-bottom: 10px;
@@ -185,6 +197,9 @@
     <div id="container">
         <div id="header">
             <h1>Peta Kampus Universitas Hasanuddin</h1>
+            <div class="group-members">
+                Kelompok 1: Rezka Wildan Nurhadi Bakri (H071231030) | Syaebatul Hamdi (H071231049) | Musliati (H071231014)
+            </div>
         </div>
         <div id="control-panel">
             <button id="view-all-btn" class="map-button">Lihat Semua Kampus</button>
@@ -195,6 +210,7 @@
             <button id="view-selayar-btn" class="map-button">Kampus Selayar</button>
             <button id="view-sidrap-btn" class="map-button">Kampus Sidrap</button>
             <button id="view-baraya-btn" class="map-button">Kampus Baraya</button>
+            <button id="view-jakarta-btn" class="map-button">Kampus Jakarta</button>
             <button id="edit-mode-btn" class="map-button">Edit Koordinat</button>
             <button id="export-json-btn" class="map-button">Export GeoJSON</button>
         </div>
@@ -534,6 +550,12 @@
             if (!geojsonData) return;
             addGeoJSONToMap(feature => feature.properties.campus === 'Baraya' || feature.properties.type === 'Kampus Fakultas');
             map.setView([-5.12728, 119.42744], 15);
+        });
+
+        document.getElementById('view-jakarta-btn').addEventListener('click', function() {
+            if (!geojsonData) return;
+            addGeoJSONToMap(feature => feature.properties.campus === 'Baraya' || feature.properties.type === 'Kampus Fakultas');
+            map.setView([-6.163907091317874, 106.8137254455195], 15);
         });
         
         document.getElementById('edit-mode-btn').addEventListener('click', function() {
